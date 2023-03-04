@@ -31,7 +31,7 @@ worker.postMessage('Hey from factory');
 const factory = {
     async initialize() {
         return Controller.initialize({
-            view: new View({}),
+            view: new View(),
             service: new Service({}),
         });
     },
