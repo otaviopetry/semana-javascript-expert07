@@ -1,6 +1,9 @@
+import Camera from '../../../libs/shared/camera.js';
 import Controller from './controller.js';
 import Service from './service.js';
 import View from './view.js';
+
+Camera.init();
 
 const [rootPath] = window.location.href.split('/pages/');
 const factory = {
