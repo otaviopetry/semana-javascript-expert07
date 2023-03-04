@@ -33,6 +33,7 @@ const factory = {
         return Controller.initialize({
             view: new View(),
             service: new Service({}),
+            worker,
         });
     },
 };

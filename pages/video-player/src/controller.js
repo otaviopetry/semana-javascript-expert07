@@ -1,12 +1,28 @@
 class Controller {
     #view;
     #service;
+    #worker;
 
-    constructor({ view, service }) {
+    constructor({ view, service, worker }) {
         this.#view = view;
         this.#service = service;
+        this.#worker = this.#configureWorker(worker);
 
         this.#view.configureOnButtonClick(this.onButtonStart.bind(this));
+    }
+
+    #configureWorker(worker) {
+        worker.onmessage = (message) => {
+            console.log('Worker message:', message.data);
+
+            if (message.data === 'READY') {
+                this.#view.enableButton();
+
+                return;
+            }
+        };
+
+        return worker;
     }
 
     static async initialize(deps) {
