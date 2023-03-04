@@ -18,7 +18,7 @@ console.log('Tensorflow model loaded!');
 postMessage('READY');
 
 onmessage = async ({ data: video }) => {
-    console.log('Video Player Worker: ', data);
+    console.log('Video Player Worker: ', video);
 
     const blinked = await service.handleBlinked(video);
 

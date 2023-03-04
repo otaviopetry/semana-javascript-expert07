@@ -16,7 +16,9 @@ class Service {
     async handleBlinked(video) {
         const predictions = await this.#estimateFaces(video);
 
-        console.log({ predictions });
+        console.log('Predictions:', predictions);
+
+        return predictions.length > 0;
     }
 
     #estimateFaces(video) {

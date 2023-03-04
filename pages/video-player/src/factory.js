@@ -4,8 +4,6 @@ import Controller from './controller.js';
 import Service from './service.js';
 import View from './view.js';
 
-Camera.init();
-
 async function getWorker() {
     if (supportsWorkerType()) {
         console.log('Supports Worker Type');
@@ -28,11 +26,13 @@ async function getWorker() {
 const worker = await getWorker();
 worker.postMessage('Hey from factory');
 
+const camera = await Camera.init();
+
 const factory = {
     async initialize() {
         return Controller.initialize({
             view: new View(),
-            service: new Service({}),
+            camera,
             worker,
         });
     },
