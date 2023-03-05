@@ -25,6 +25,12 @@ export default class HandGestureController {
         try {
             const hands = await this.#service.estimateHands(this.#camera.video);
 
+            this.#view.clear();
+
+            if (hands && hands.length) {
+                this.#view.drawResults(hands);
+            }
+
             for await (const { event, x, y } of this.#service.detectGestures(
                 hands,
             )) {
@@ -34,10 +40,10 @@ export default class HandGestureController {
                     this.#scrollPage(event);
                 }
 
-                if (event === 'rockAndRoll' && !this.#hasAddedOverlay) {
-                    this.#view.addRockAndRollOverlay();
-                    this.#hasAddedOverlay = true;
-                }
+                // if (event === 'rockAndRoll' && !this.#hasAddedOverlay) {
+                //     this.#view.addRockAndRollOverlay();
+                //     this.#hasAddedOverlay = true;
+                // }
             }
         } catch (error) {
             console.error('Oh no, something terrible has happened:', error);

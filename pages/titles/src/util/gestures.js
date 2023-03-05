@@ -51,7 +51,7 @@ const ScrollDownGesture = buildScrollDownGesture(); // ✊️
 const ScrollUpGesture = buildScrollUpGesture(); // 🖐
 const RockAndRollGesture = buildRockAndRollGesture(); // 🤘
 
-const knownGestures = [ScrollDownGesture, ScrollUpGesture, RockAndRollGesture];
+const knownGestures = [ScrollDownGesture, ScrollUpGesture];
 const gestureStrings = {
     scrollDown: '✊️',
     scrollUp: '🖐',
