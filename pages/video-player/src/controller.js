@@ -27,12 +27,13 @@ class Controller {
 
             const blinked = data.blinked;
 
-            this.#blinkCounter += blinked;
             console.log('Blinked:', blinked);
+            this.#blinkCounter += blinked;
         };
 
         return {
             send(message) {
+                console.log('Sending message to worker:', message);
                 if (!ready) return;
 
                 worker.postMessage(message);
@@ -61,11 +62,12 @@ class Controller {
         this.#worker.send(image);
         this.log('Detecting eye blink...');
 
-        setTimeout(() => this.loop, 100);
+        setTimeout(() => this.loop(), 100);
     }
 
     log(text) {
-        this.#view.log(`Status: ${text}`);
+        const times = `       - blinked times: ${ this.#blinkCounter }`;
+        this.#view.log(`Status: ${text}`.concat(this.#blinkCounter ? times : ''));
     }
 
     onButtonStart() {
