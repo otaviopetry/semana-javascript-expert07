@@ -47,15 +47,39 @@ function buildRockAndRollGesture() {
     return gesture;
 }
 
+function buildClickGesture() {
+    const gesture = new GestureDescription('click');
+
+    gesture.addCurl(Finger.Index, FingerCurl.HalfCurl, 0.8);
+    gesture.addCurl(Finger.Index, FingerCurl.FullCurl, 0.5);
+
+    gesture.addCurl(Finger.Thumb, FingerCurl.NoCurl, 1.0);
+    gesture.addCurl(Finger.Thumb, FingerCurl.HalfCurl, 0.4);
+
+    for (const finger of [Finger.Middle, Finger.Ring, Finger.Pinky]) {
+        gesture.addCurl(finger, FingerCurl.HalfCurl, 1.0);
+        gesture.addCurl(finger, FingerCurl.FullCurl, 0.9);
+    }
+
+    return gesture;
+}
+
 const ScrollDownGesture = buildScrollDownGesture(); // ✊️
 const ScrollUpGesture = buildScrollUpGesture(); // 🖐
 const RockAndRollGesture = buildRockAndRollGesture(); // 🤘
+const ClickGesture = buildClickGesture(); // 🤏
 
-const knownGestures = [ScrollDownGesture, ScrollUpGesture];
+const knownGestures = [
+    ScrollDownGesture,
+    ScrollUpGesture,
+    RockAndRollGesture,
+    ClickGesture,
+];
 const gestureStrings = {
     scrollDown: '✊️',
     scrollUp: '🖐',
     rockAndRoll: '🤘',
+    click: '🤏',
 };
 
 export { knownGestures, gestureStrings };

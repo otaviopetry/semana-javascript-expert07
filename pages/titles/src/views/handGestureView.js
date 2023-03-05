@@ -20,7 +20,6 @@ export default class HandGestureView {
 
     drawResults(hands) {
         for (const { keypoints, handedness } of hands) {
-            console.log({ handedness });
             if (!keypoints) continue;
 
             this.#canvasContext.fillStyle =
