@@ -33,6 +33,16 @@ export default class HandGestureService {
                 return previous.score > current.score ? previous : current;
             });
 
+            const { x, y } = hand.keypoints.find(
+                (keypoint) => keypoint.name === 'index_finger_tip',
+            );
+
+            yield {
+                event: result.name,
+                x,
+                y,
+            };
+
             console.log('detected:', gestureStrings[result.name]);
         }
     }
