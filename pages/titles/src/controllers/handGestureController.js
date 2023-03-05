@@ -9,6 +9,7 @@ export default class HandGestureController {
         direction: '',
         y: 0,
     };
+    #hasAddedOverlay = false;
 
     constructor({ view, service, camera }) {
         this.#view = view;
@@ -31,6 +32,11 @@ export default class HandGestureController {
                     if (!shouldRunScroll()) continue;
 
                     this.#scrollPage(event);
+                }
+
+                if (event === 'rockAndRoll' && !this.#hasAddedOverlay) {
+                    this.#view.addRockAndRollOverlay();
+                    this.#hasAddedOverlay = true;
                 }
             }
         } catch (error) {
