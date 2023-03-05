@@ -31,9 +31,7 @@ export default class HandGestureController {
                 this.#view.drawResults(hands);
             }
 
-            for await (const { event, x, y } of this.#service.detectGestures(
-                hands,
-            )) {
+            for await (const { event } of this.#service.detectGestures(hands)) {
                 if (event.includes('scroll')) {
                     if (!shouldRunScroll()) continue;
 
