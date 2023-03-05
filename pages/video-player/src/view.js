@@ -5,6 +5,7 @@ class View {
     #canvasContext = this.#videoFrameCanvas.getContext('2d', {
         willReadFrequently: true,
     });
+    #videoElement = document.querySelector('#video');
 
     getVideoFrame(video) {
         const canvas = this.#videoFrameCanvas;
@@ -15,6 +16,16 @@ class View {
         this.#canvasContext.drawImage(video, 0, 0, width, height);
 
         return this.#canvasContext.getImageData(0, 0, width, height);
+    }
+
+    togglePlayVideo() {
+        if (this.#videoElement.paused) {
+            this.#videoElement.play();
+
+            return;
+        }
+
+        this.#videoElement.pause();
     }
 
     enableButton() {

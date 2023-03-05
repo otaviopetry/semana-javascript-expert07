@@ -29,6 +29,7 @@ class Controller {
 
             console.log('Blinked:', blinked);
             this.#blinkCounter += blinked;
+            this.#view.togglePlayVideo();
         };
 
         return {
