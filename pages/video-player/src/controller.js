@@ -4,12 +4,13 @@ class Controller {
     #worker;
     #blinkCounter = 0;
 
-    constructor({ view, camera, worker }) {
+    constructor({ view, camera, worker, videoUrl }) {
         this.#view = view;
         this.#camera = camera;
         this.#worker = this.#configureWorker(worker);
 
         this.#view.configureOnButtonClick(this.onButtonStart.bind(this));
+        this.#view.setVideoSrc(videoUrl);
     }
 
     #configureWorker(worker) {
@@ -22,7 +23,7 @@ class Controller {
 
                 return;
             }
-            
+
             if (data.blinkedLeft && !data.blinkedRight) {
                 this.#view.play();
                 this.#blinkCounter++;
@@ -71,8 +72,10 @@ class Controller {
     }
 
     log(text) {
-        const times = `       - blinked times: ${ this.#blinkCounter }`;
-        this.#view.log(`Status: ${text}`.concat(this.#blinkCounter ? times : ''));
+        const times = `       - blinked times: ${this.#blinkCounter}`;
+        this.#view.log(
+            `Status: ${text}`.concat(this.#blinkCounter ? times : ''),
+        );
     }
 
     onButtonStart() {

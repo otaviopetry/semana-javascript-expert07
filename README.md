@@ -4,6 +4,10 @@ Seja bem vindo(a) à sétima Semana Javascript Expert. Este é o código inicial
 
 Marque esse projeto com uma estrela 🌟
 
+# Live Demo
+
+-   Para testar o projeto final [clique aqui](https://otaviopetry.github.io/semana-javascript-expert07/)
+
 ## Preview
 
 <img width=100% src="./assets/demo-template-lg.gif">
