@@ -1,6 +1,7 @@
 import { prepareRunChecker } from '../../../../libs/shared/util.js';
 
 const { shouldRun: shouldRunScroll } = prepareRunChecker({ timerDelay: 400 });
+const { shouldRun: shouldRunClick } = prepareRunChecker({ timerDelay: 2000 });
 export default class HandGestureController {
     #view;
     #service;
@@ -31,13 +32,24 @@ export default class HandGestureController {
                 this.#view.drawResults(hands);
             }
 
-            for await (const { event } of this.#service.detectGestures(hands)) {
+            for await (const { event, x, y } of this.#service.detectGestures(
+                hands,
+            )) {
+                if (event === 'click') {
+                    if (!shouldRunClick()) continue;
+
+                    this.#view.clickOnElement(x, y);
+
+                    continue;
+                }
+
                 if (event.includes('scroll')) {
                     if (!shouldRunScroll()) continue;
 
                     this.#scrollPage(event);
                 }
 
+                // easteregg
                 // if (event === 'rockAndRoll' && !this.#hasAddedOverlay) {
                 //     this.#view.addRockAndRollOverlay();
                 //     this.#hasAddedOverlay = true;
