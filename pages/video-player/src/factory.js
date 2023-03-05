@@ -4,10 +4,9 @@ import Controller from './controller.js';
 import Service from './service.js';
 import View from './view.js';
 
+const camera = await Camera.init();
 const worker = await getWorker();
 worker.postMessage('Hey from factory');
-
-const camera = await Camera.init();
 
 const factory = {
     async initialize() {

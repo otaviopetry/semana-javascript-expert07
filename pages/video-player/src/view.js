@@ -28,6 +28,22 @@ class View {
         this.#videoElement.pause();
     }
 
+    play() {
+        if (!this.#videoElement.paused) {
+            return;
+        }
+
+        this.#videoElement.play();
+    }
+
+    pause() {
+        if (this.#videoElement.paused) {
+            return;
+        }
+
+        this.#videoElement.pause();
+    }
+
     enableButton() {
         this.#btnInit.disabled = false;
     }

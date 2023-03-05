@@ -16,25 +16,29 @@ class Controller {
         let ready = false;
 
         worker.onmessage = ({ data }) => {
-            console.log('Worker message:', data);
-
             if (data === 'READY') {
                 this.#view.enableButton();
                 ready = true;
 
                 return;
             }
+            
+            if (data.blinkedLeft && !data.blinkedRight) {
+                this.#view.play();
+                this.#blinkCounter++;
+            }
 
-            const blinked = data.blinked;
+            if (data.blinkedRight && !data.blinkedLeft) {
+                this.#view.pause();
+                this.#blinkCounter++;
+            }
 
-            console.log('Blinked:', blinked);
-            this.#blinkCounter += blinked;
-            this.#view.togglePlayVideo();
+            console.log('Blinked:', data);
+            // this.#view.togglePlayVideo();
         };
 
         return {
             send(message) {
-                console.log('Sending message to worker:', message);
                 if (!ready) return;
 
                 worker.postMessage(message);

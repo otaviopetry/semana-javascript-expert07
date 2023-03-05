@@ -2,7 +2,7 @@ import { prepareRunChecker } from "../../../libs/shared/util.js";
 
 const { shouldRun } = prepareRunChecker({ timerDelay: 500 });
 
-const EAR_THRESHOLD = 0.27;
+const EYELID_DISTANCE_THRESHOLD = 0.23;
 
 class Service {
     #model;
@@ -19,7 +19,7 @@ class Service {
         );
     }
 
-    #getEAR(upper, lower) {
+    #getEyelidsDistance(upper, lower) {
         function getEucledianDistance(x1, y1, x2, y2) {
             return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
         }
@@ -49,7 +49,7 @@ class Service {
     async handleBlinked(video) {
         const predictions = await this.#estimateFaces(video);
 
-        console.log('Predictions: ', predictions);
+        // console.log('Predictions: ', predictions);
 
         if (!predictions.length) return false;
         
@@ -57,20 +57,23 @@ class Service {
             // Right eye parameters
             const lowerRight = prediction.annotations.rightEyeUpper0;
             const upperRight = prediction.annotations.rightEyeLower0;
-            const rightEAR = this.#getEAR(upperRight, lowerRight);
+            const rightEyelidsDistance = this.#getEyelidsDistance(upperRight, lowerRight);
             // Left eye parameters
             const lowerLeft = prediction.annotations.leftEyeUpper0;
             const upperLeft = prediction.annotations.leftEyeLower0;
-            const leftEAR = this.#getEAR(upperLeft, lowerLeft);
+            const leftEyelidsDistance = this.#getEyelidsDistance(upperLeft, lowerLeft);
 
             // True if the eye is closed
-            const blinked =
-                leftEAR <= EAR_THRESHOLD && rightEAR <= EAR_THRESHOLD;
+            const blinkedLeft = leftEyelidsDistance <= EYELID_DISTANCE_THRESHOLD;
+            const blinkedRight = rightEyelidsDistance <= EYELID_DISTANCE_THRESHOLD;
                 
-            if (!blinked) continue;
+            if (!blinkedLeft && !blinkedRight) continue;
             if (!shouldRun()) continue;
             
-            return blinked;
+            return {
+                blinkedLeft,
+                blinkedRight,
+            };
         }
 
         return false;

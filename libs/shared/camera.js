@@ -29,9 +29,9 @@ class Camera {
         camera.video.srcObject = stream;
         
         // For debugging
-        // camera.video.height = 240;
-        // camera.video.width = 320;
-        // document.body.append(camera.video);
+        camera.video.height = 240;
+        camera.video.width = 320;
+        document.body.append(camera.video);
 
         await new Promise((resolve) => {
             camera.video.onloadedmetadata = () => {
