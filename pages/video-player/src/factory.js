@@ -10,13 +10,15 @@ worker.postMessage('Hey from factory');
 
 const [rootPath] = window.location.href.split('/pages/');
 
+const view = new View();
+view.setVideoSrc(`${rootPath}/assets/video.mp4`);
+
 const factory = {
     async initialize() {
         return Controller.initialize({
-            view: new View(),
+            view,
             camera,
             worker,
-            videoUrl: `${rootPath}/assets/video.mp4`,
         });
     },
 };

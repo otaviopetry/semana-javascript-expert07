@@ -4,13 +4,12 @@ class Controller {
     #worker;
     #blinkCounter = 0;
 
-    constructor({ view, camera, worker, videoUrl }) {
+    constructor({ view, camera, worker }) {
         this.#view = view;
         this.#camera = camera;
         this.#worker = this.#configureWorker(worker);
 
         this.#view.configureOnButtonClick(this.onButtonStart.bind(this));
-        this.#view.setVideoSrc(videoUrl);
     }
 
     #configureWorker(worker) {
