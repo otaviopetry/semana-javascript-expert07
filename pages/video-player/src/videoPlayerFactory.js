@@ -29,7 +29,7 @@ async function getWorker() {
     if (supportsWorkerType()) {
         console.log('Initializing ESM Workers');
 
-        const worker = new Worker('./src/worker.js', { type: 'module' });
+        const worker = new Worker('./src/videoPlayerWorker.js', { type: 'module' });
 
         return worker;
     }
