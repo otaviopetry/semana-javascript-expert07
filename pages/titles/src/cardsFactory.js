@@ -2,7 +2,7 @@ import CardsController from './cardsController.js';
 import CardsView from './cardsView.js';
 import CardsService from './cardsService.js';
 
-const cardListWorker = new Worker('./cardListWorker.js');
+const cardListWorker = new Worker('./src/cardListWorker.js');
 
 const [rootPath] = window.location.href.split('/pages/');
 const factory = {
