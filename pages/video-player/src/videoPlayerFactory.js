@@ -11,7 +11,7 @@ worker.postMessage('Hey from factory');
 const [rootPath] = window.location.href.split('/pages/');
 
 const view = new View();
-view.setVideoSrc(`${rootPath}/assets/video.mp4`);
+view.setVideoSrc(`${rootPath}/assets/neneka.mp4`);
 
 const factory = {
     async initialize() {

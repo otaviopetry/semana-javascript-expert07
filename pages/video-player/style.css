@@ -11,7 +11,7 @@ body {
     flex-direction: column;
 }
 video {
-    width: 70%;
+    max-height: 80vh;
     margin: 10px;
 }
 button {
@@ -21,12 +21,7 @@ button {
     margin-left: 20px;
 }
 #hands {
-    /* faz com que elementos possam ser clicavel */
     pointer-events: none;
-
-    /* faz ficar em cima dos elementos */
     position: fixed;
-
-    /* fica à frente dos elementos */
     z-index: 999;
 }
