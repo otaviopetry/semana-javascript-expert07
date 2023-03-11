@@ -5,29 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>JSExpert Max - BlinkToPlay</title>
-        <style>
-            video {
-                width: 95%;
-                margin: 10px;
-            }
-            button {
-                margin: 10px;
-            }
-            .button-container {
-                margin-left: 20px;
-            }        
-        </style>
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
-        <div class="button-container">
-            <div>
-                <button id="init" type="button" disabled>
-                    Initialize Blink Recognition
-                </button>
-                <output id="status"></output>
+        <div class="container">
+            <canvas id="hands"></canvas>
+            <div class="button-container">
+                <div>
+                    <button id="init" type="button" disabled>
+                        Initialize Blink Recognition
+                    </button>
+                    <output id="status"></output>
+                </div>
             </div>
+            <video id="video" controls></video>
+            <script src="./index.js" type="module"></script>
+            <script type='text/javascript' src='https://cdn.jsdelivr.net/gh/TSedlar/pseudo-styler@1.0.8/pseudostyler.js'></script>
         </div>
-        <video id="video" controls></video>
-        <script src="./src/index.js" type="module"></script>
     </body>
 </html>

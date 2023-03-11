@@ -1,8 +1,8 @@
 import Camera from '../../../libs/shared/camera.js';
 import { supportsWorkerType } from '../../../libs/shared/util.js';
-import Controller from './controller.js';
-import Service from './service.js';
-import View from './view.js';
+import Controller from './videoPlayerController.js';
+import Service from './videoPlayerService.js';
+import View from './videoPlayerView.js';
 
 const camera = await Camera.init();
 const worker = await getWorker();

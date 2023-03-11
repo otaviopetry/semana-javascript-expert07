@@ -4,16 +4,16 @@ import 'https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1646424915/hands.min.j
 import 'https://cdn.jsdelivr.net/npm/@tensorflow-models/hand-pose-detection@2.0.0/dist/hand-pose-detection.min.js';
 import 'https://cdn.jsdelivr.net/npm/fingerpose@0.1.0/dist/fingerpose.min.js';
 
-import HandGestureController from '../controllers/handGestureController.js';
-import HandGestureService from '../services/handGestureService.js';
-import HandGestureView from '../views/handGestureView.js';
+import HandGestureController from './handGestureController.js';
+import HandGestureService from './handGestureService.js';
+import HandGestureView from './handGestureView.js';
 
-import Camera from '../../../../libs/shared/camera.js';
+import Camera from '../shared/camera.js';
 import {
     fingerLookupIndexes,
     gestureStrings,
     knownGestures,
-} from '../util/util.js';
+} from './util.js';
 
 const styler = new PseudoStyler();
 const camera = await Camera.init();
