@@ -1,4 +1,4 @@
-import { prepareRunChecker } from '../shared/util.js';
+import { prepareRunChecker } from '/libs/shared/util.js';
 
 const { shouldRun: shouldRunScroll } = prepareRunChecker({ timerDelay: 400 });
 const { shouldRun: shouldRunClick } = prepareRunChecker({ timerDelay: 2000 });

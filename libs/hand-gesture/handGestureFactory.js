@@ -8,7 +8,7 @@ import HandGestureController from './handGestureController.js';
 import HandGestureService from './handGestureService.js';
 import HandGestureView from './handGestureView.js';
 
-import Camera from '../shared/camera.js';
+import Camera from '/libs/shared/camera.js';
 import {
     fingerLookupIndexes,
     gestureStrings,

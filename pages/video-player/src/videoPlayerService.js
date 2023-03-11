@@ -1,4 +1,4 @@
-import { prepareRunChecker } from "../../../libs/shared/util.js";
+import { prepareRunChecker } from "/libs/shared/util.js";
 
 const { shouldRun } = prepareRunChecker({ timerDelay: 500 });
 

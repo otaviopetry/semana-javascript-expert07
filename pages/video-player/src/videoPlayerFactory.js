@@ -1,5 +1,5 @@
-import Camera from '../../../libs/shared/camera.js';
-import { supportsWorkerType } from '../../../libs/shared/util.js';
+import Camera from '/libs/shared/camera.js';
+import { supportsWorkerType } from '/libs/shared/util.js';
 import Controller from './videoPlayerController.js';
 import Service from './videoPlayerService.js';
 import View from './videoPlayerView.js';
