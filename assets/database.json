@@ -285,18 +285,18 @@
     "imageUrl": "https://images.unsplash.com/photo-1593940256067-fb4acd831804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDI0OTB8MHwxfHNlYXJjaHw5MTl8fG1vdmllfGVufDB8fHx8MTY3NDU4NTMzNA&ixlib=rb-4.0.3&q=80&w=1080"
   },
   {
-    "show_id": "80997965",
-    "title": "Merry Happy Whatever",
-    "director": "",
-    "cast": "Dennis Quaid, Bridgit Mendler, Brent Morin, Ashley Tisdale, Siobhan Murphy, Adam Rose, Elizabeth Ho, Hayes MacArthur, Garcelle Beauvais, Tyler Ritter, Mason Davis, Lucas Jaye",
-    "country": "United States",
-    "date_added": "November 28, 2019",
-    "release_year": "2019",
+    "show_id": "314529687",
+    "title": "Le Doguito",
+    "director": "Otavio Petry",
+    "cast": "Neka Caramelo",
+    "country": "Brazil",
+    "date_added": "March 11, 2023",
+    "release_year": "2022",
     "rating": "TV-PG",
     "duration": "1 Season",
     "listed_in": "TV Comedies",
-    "description": "A struggling LA musician tries to win over his new girlfriend's gruff dad and quirky, tight-knit siblings on a 10-day Christmas visit to Philadelphia.",
+    "description": "A yellow greyhound named Doguito is the star of this animated series that follows his adventures with his friends, including a cat, a bird and a turtle.",
     "type": "TV Show",
-    "imageUrl": "https://images.unsplash.com/photo-1542204637-e67bc7d41e48?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDI0OTB8MHwxfHNlYXJjaHw5MjB8fG1vdmllfGVufDB8fHx8MTY3NDU4NTMzNA&ixlib=rb-4.0.3&q=80&w=1080"
+    "imageUrl": "http://localhost:3000/assets/le-doguito.png"
   }
 ]
